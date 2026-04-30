@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "Prototipe",
+    "maps": [
+        {
+            "name": "Main",
+            "id": "5400afff-6858-4e9e-adbf-15be9e05fc42",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "45aa80bb-3336-4c1d-9e48-728cc4f4d65f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "5485e4c4-aafc-49fd-a618-a10f6ecdc4fd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cc9d61cf-c6a2-4550-801e-4436c47566b1",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "798e69eb-bcae-4ed2-92be-0877cb4e73cf",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
