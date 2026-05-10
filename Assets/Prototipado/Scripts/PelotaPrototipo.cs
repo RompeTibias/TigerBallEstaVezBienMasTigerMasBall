@@ -1,16 +1,20 @@
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PelotaPrototipo : MonoBehaviour
 {
     //Hacer que la pelota se mueva con el movimiento del mouse, en los 3 ejes y dependa de la fuerza del movimiento del mouse, es decir, si el mouse se mueve r�pido, la pelota se mover� m�s r�pido, y si el mouse se mueve lento, la pelota se mover� m�s lento.
-    float MaxSpeed = 3f;
+    float MaxSpeed = 10f; // Antes era 3f
     InputAction mouseMovement;
     InputAction mouseClick;
     InputAction mouseRClick;
     InputAction letterRClick;
     Camera mainCamera;
     bool isCameraRotating = false;
+    Rigidbody rb;
+    bool enMovimiento = false;
+    Vector3 StartPos;
     void Awake()
     {
         mouseMovement = new InputAction("MouseMovement", InputActionType.Value, "<Mouse>/delta");
@@ -22,28 +26,35 @@ public class PelotaPrototipo : MonoBehaviour
         mouseRClick.Enable();
         letterRClick.Enable();
         mainCamera = Camera.main;
+        
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        StartPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        if (mouseClick.ReadValue<float>() > 0)
+        if (rb.linearVelocity.magnitude > 5f)
         {
-            //La pelota debe sentirse como si fuera lanzada como una pelota de baloncesto, es decir, debe tener una trayectoria parab�lica y una fuerza de lanzamiento que dependa de la velocidad del movimiento del mouse. Si el mouse se mueve r�pido, la pelota se lanzar� con m�s fuerza, y si el mouse se mueve lento, la pelota se lanzar� con menos fuerza.
+            stopBalllll();
+        }
+        else
+        {
+            enMovimiento = false;
+        }
+        if (mouseClick.ReadValue<float>() > 0 && !enMovimiento)
+        {
             Debug.Log("Mouse Clicked");
             Vector2 mouseDelta = mouseMovement.ReadValue<Vector2>();
             Vector3 launchDirection = new Vector3(mouseDelta.x, mouseDelta.y, 1).normalized;
             Vector3 cameraDirection = mainCamera.transform.rotation * launchDirection;
-            float launchForce = Mathf.Clamp(mouseDelta.magnitude * 0.1f, 0, MaxSpeed);
-            GetComponent<Rigidbody>().AddForce(cameraDirection * launchForce, ForceMode.VelocityChange);
-
+            float launchForce = Mathf.Clamp(mouseDelta.magnitude * 100f, 0, MaxSpeed);
+            rb.AddForce(cameraDirection * launchForce, ForceMode.VelocityChange);
         }
 
         if (mouseRClick.ReadValue<float>() > 0 && !isCameraRotating)
@@ -68,8 +79,8 @@ public class PelotaPrototipo : MonoBehaviour
         {
             Debug.Log("Letter R Clicked");
             //Al hacer click en la letra R, la pelota volver� a su posici�n original y se detendr� cualquier movimiento que tenga.
-            GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-            transform.position = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
+            transform.position = StartPos;
         }
     }
     void ClickCameraStart()
@@ -77,5 +88,13 @@ public class PelotaPrototipo : MonoBehaviour
         mainCamera.transform.position = transform.position + new Vector3(0, 1, -10);
         mainCamera.transform.rotation = UnityEngine.Quaternion.LookRotation(transform.position - mainCamera.transform.position);
         isCameraRotating = true;
+    }
+
+    Coroutine stopBalllll()
+    {
+        if (enMovimiento) return null;
+        WaitForSeconds wait = new WaitForSeconds(0.5f);
+        enMovimiento = true;
+        return null;
     }
 }
