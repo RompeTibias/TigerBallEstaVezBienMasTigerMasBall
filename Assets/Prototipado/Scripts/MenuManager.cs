@@ -6,9 +6,12 @@ using UnityEngine.UIElements;
 public class MenuManager : MonoBehaviour
 {
     string actualScene;
+
     public GameObject pauseCanvas;
 
     public PelotaPrototipo inputManager;
+
+    string buttonName;
 
     public void NextLevel()
     {
@@ -28,9 +31,35 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void SelectLevel(GameObject button)
+    {
+        buttonName = button.name;
+
+        switch (buttonName)
+        {
+            case "ButtonLvl1":
+                SceneManager.LoadScene("Nivel1");
+                break;
+            case "ButtonLvl2":
+                SceneManager.LoadScene("Nivel2");
+                break;
+            case "ButtonLvl3":
+                SceneManager.LoadScene("Nivel3");
+                break;
+            default:
+                Debug.Log("No button found");
+                break;
+        }
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Nivel1");
+    }
+
+    public void LevelsMenu()
+    {
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void CloseGame()
@@ -41,6 +70,10 @@ public class MenuManager : MonoBehaviour
     public void GoMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        inputManager.mouseMovement.Enable();
+        inputManager.mouseClick.Enable();
+        inputManager.mouseRClick.Enable();
+        inputManager.letterRClick.Enable();
     }
 
     public void Resume()
