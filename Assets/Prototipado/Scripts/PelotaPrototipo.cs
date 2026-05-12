@@ -6,25 +6,29 @@ public class PelotaPrototipo : MonoBehaviour
 {
     //Hacer que la pelota se mueva con el movimiento del mouse, en los 3 ejes y dependa de la fuerza del movimiento del mouse, es decir, si el mouse se mueve r�pido, la pelota se mover� m�s r�pido, y si el mouse se mueve lento, la pelota se mover� m�s lento.
     float MaxSpeed = 10f; // Antes era 3f
-    InputAction mouseMovement;
-    InputAction mouseClick;
-    InputAction mouseRClick;
-    InputAction letterRClick;
+    public InputAction mouseMovement;
+    public InputAction mouseClick;
+    public InputAction mouseRClick;
+    public InputAction letterRClick;
+    InputAction letterEscClick;
     Camera mainCamera;
     bool isCameraRotating = false;
     Rigidbody rb;
     bool enMovimiento = false;
     Vector3 StartPos;
+    public GameObject pauseCanvas;
     void Awake()
     {
         mouseMovement = new InputAction("MouseMovement", InputActionType.Value, "<Mouse>/delta");
         mouseClick = new InputAction("MouseClick", InputActionType.Button, "<Mouse>/leftButton");
         mouseRClick = new InputAction("MouseRClick", InputActionType.Button, "<Mouse>/rightButton");
         letterRClick = new InputAction("LetterRClick", InputActionType.Button, "<Keyboard>/r");
+        letterEscClick = new InputAction("LetterEscClick", InputActionType.Button, "<Keyboard>/escape");
         mouseMovement.Enable();
         mouseClick.Enable();
         mouseRClick.Enable();
         letterRClick.Enable();
+        letterEscClick.Enable();
         mainCamera = Camera.main;
         
     }
@@ -81,6 +85,14 @@ public class PelotaPrototipo : MonoBehaviour
             //Al hacer click en la letra R, la pelota volver� a su posici�n original y se detendr� cualquier movimiento que tenga.
             rb.linearVelocity = Vector3.zero;
             transform.position = StartPos;
+        }
+        if (letterEscClick.ReadValue<float>() > 0)
+        {
+            pauseCanvas.SetActive(true);
+            mouseMovement.Disable();
+            mouseClick.Disable();
+            mouseRClick.Disable();
+            letterRClick.Disable();
         }
     }
     void ClickCameraStart()
