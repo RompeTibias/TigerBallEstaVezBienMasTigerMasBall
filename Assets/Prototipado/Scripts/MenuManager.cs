@@ -9,10 +9,18 @@ public class MenuManager : MonoBehaviour
 
     public GameObject pauseCanvas;
 
+    public GameObject tutorialCanvas;
+
     public PelotaPrototipo inputManager;
 
     string buttonName;
-
+    public void Start()
+    {
+        inputManager.mouseMovement.Disable();
+        inputManager.mouseClick.Disable();
+        inputManager.mouseRClick.Disable();
+        inputManager.letterRClick.Disable();
+    }
     public void NextLevel()
     {
         actualScene = SceneManager.GetActiveScene().name;
@@ -80,6 +88,14 @@ public class MenuManager : MonoBehaviour
     {
         pauseCanvas.SetActive(false);
 
+        inputManager.mouseMovement.Enable();
+        inputManager.mouseClick.Enable();
+        inputManager.mouseRClick.Enable();
+        inputManager.letterRClick.Enable();
+    }
+    public void CloseTutorial()
+    {
+        tutorialCanvas.SetActive(false);
         inputManager.mouseMovement.Enable();
         inputManager.mouseClick.Enable();
         inputManager.mouseRClick.Enable();
