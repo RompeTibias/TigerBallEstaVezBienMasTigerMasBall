@@ -14,13 +14,18 @@ public class MenuManager : MonoBehaviour
     public PelotaPrototipo inputManager;
 
     string buttonName;
+
     public void Start()
     {
-        inputManager.mouseMovement.Disable();
-        inputManager.mouseClick.Disable();
-        inputManager.mouseRClick.Disable();
-        inputManager.letterRClick.Disable();
+        if (tutorialCanvas != null)
+        {
+            inputManager.mouseMovement.Disable();
+            inputManager.mouseClick.Disable();
+            inputManager.mouseRClick.Disable();
+            inputManager.letterRClick.Disable();
+        }        
     }
+
     public void NextLevel()
     {
         actualScene = SceneManager.GetActiveScene().name;

@@ -17,6 +17,7 @@ public class PelotaPrototipo : MonoBehaviour
     bool enMovimiento = false;
     Vector3 StartPos;
     public GameObject pauseCanvas;
+
     void Awake()
     {
         mouseMovement = new InputAction("MouseMovement", InputActionType.Value, "<Mouse>/delta");
@@ -30,7 +31,6 @@ public class PelotaPrototipo : MonoBehaviour
         letterRClick.Enable();
         letterEscClick.Enable();
         mainCamera = Camera.main;
-        
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
