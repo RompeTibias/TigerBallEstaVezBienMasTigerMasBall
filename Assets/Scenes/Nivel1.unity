@@ -4543,6 +4543,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46977b2ab8352514097d3387f0a88c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelotaPrototipo
+  launchForce: 10
+  elevationBias: 0.2
+  trajectoryRenderer: {fileID: 0}
+  trajectoryPoints: 40
+  trajectoryTimeStep: 0.1
+  cameraOffset: {x: 0, y: 1, z: -10}
+  cameraFollowSpeed: 5
+  followStopSpeedThreshold: 5
+  zoomSpeed: 2
+  minZoomDistance: 2
+  maxZoomDistance: 20
+  groundCheckDistance: 0.6
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   mouseMovement:
     m_Name: Mouse Movement
     m_Type: 0

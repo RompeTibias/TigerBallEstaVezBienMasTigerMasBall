@@ -201,6 +201,7 @@ public class PelotaPrototipo : MonoBehaviour
         // Pause con ESC
         if (letterEscClick.ReadValue<float>() > 0)
         {
+            Debug.Log("Letter ESC Clicked - Pausa");
             pauseCanvas.SetActive(true);
             mouseMovement.Disable();
             mouseClick.Disable();
