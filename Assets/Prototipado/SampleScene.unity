@@ -590,7 +590,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &874856780
 SphereCollider:
@@ -697,6 +697,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46977b2ab8352514097d3387f0a88c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelotaPrototipo
+  launchForce: 10
+  elevationBias: 2
+  trajectoryRenderer: {fileID: 0}
+  trajectoryPoints: 40
+  trajectoryTimeStep: 0.1
+  mouseMovement:
+    m_Name: Mouse Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a8a99468-5214-415e-ae59-6be789904947
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  mouseClick:
+    m_Name: Mouse Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8ebea17b-a991-4a84-ab30-2231819acbac
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  mouseRClick:
+    m_Name: Mouse R Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 981d485d-a26d-4180-8172-65c5c8cb4568
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  letterRClick:
+    m_Name: Letter R Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8ec262b6-f205-45fd-b700-17d6292a2ac4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  pauseCanvas: {fileID: 0}
 --- !u!1 &1144313025
 GameObject:
   m_ObjectHideFlags: 0
