@@ -1501,7 +1501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.37254468, y: 20.564346}
+  m_AnchoredPosition: {x: -0.37254468, y: 29.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &970037751
@@ -1525,9 +1525,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Click Derecho para fijar camara a la bola\n\nClicl izquierdo para lanzar
-    la bola en la direcci\xF3n en la que se mueve el rat\xF3n\n\nR para reiniciar
-    el nivel\n\nEsc para abrir el men\xFA\n\n\nLlega al final del nivel para pasar
-    al siguente"
+    la bola en la direcci\xF3n en la que se mueve el rat\xF3n\n(SE aplican las fuerza
+    con la que mueves el rat\xF3n)\n\nR para reiniciar el nivel\n\nEsc para abrir
+    el men\xFA\n\nManten la E para visualizar la trayectoria\n\nLlega al final del
+    nivel para pasar al siguente"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -3033,7 +3034,7 @@ Transform:
   m_GameObject: {fileID: 1425427126}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.37286, y: -8.595289, z: 47.420837}
+  m_LocalPosition: {x: 3.37286, y: -13.2, z: 47.420837}
   m_LocalScale: {x: 50, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3994,7 +3995,7 @@ Transform:
   m_GameObject: {fileID: 1853852469}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.37286, y: -26.39529, z: 47.420837}
+  m_LocalPosition: {x: 3.37286, y: -31, z: 47.420837}
   m_LocalScale: {x: 50, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
